@@ -1,1 +1,1 @@
-# SinglePageWebApplication
+# Single Page Web Application
