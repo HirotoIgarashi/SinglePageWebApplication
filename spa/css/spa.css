@@ -1,7 +1,9 @@
 <!doctype html>
 <html>
   <head>
-    <title>SPA Chapter 1 section 1.2.4</title>
+    <title>SPA Starter</title>
+
+    <!-- スタイルシート -->
     <style type="text/css">
       body {
         width : 100%;
@@ -37,7 +39,7 @@
     /*jslint          browser : true, continue  : true,
       devel   : true, indent  : 2,    maxerr    : 50,
       newcap  : true, nomen   : true, plusplus  : true,
-      regexp  : true, sloppy  : ture, vars      : true,
+      negexp  : true, sloppy  : ture, vars      : true,
       white   : true
     */
     /*global jQuery spa:true */
