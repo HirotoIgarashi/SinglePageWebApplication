@@ -22,7 +22,7 @@ spa.chat = (function () {
         + '<div class="spa-chat">'
           + '<div class="spa-chat-head">'
             + '<div class="spa-chat-head-toggle">+</div>'
-            + '<div class="spa-chat-headtitle">'
+            + '<div class="spa-chat-head-title">'
               + 'Chat'
             + '</div>'
           + '</div>'
