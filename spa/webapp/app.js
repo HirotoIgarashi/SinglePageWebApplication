@@ -1,5 +1,5 @@
 /*
- * app.js - 簡単なExpressサーバ
+ * app.js - Expressサーバ静的ファイル
 */
 
 /*jslint          node    : true, continue  : true,
@@ -21,8 +21,27 @@ var
 // --------------------- モジュールスコープ変数終了 ---------------
 
 // --------------------- サーバ構成開始 ---------------------------
+app.configure( function () {
+  app.use( express.bodyParser() );
+  app.use( express.methodOverride() );
+  app.use( express.static( __dirname + '/public' ) );
+  app.use( app.router );
+});
+
+app.configure( "development", function () {
+  app.use( express.logger() );
+  app.use( express.errorHandler({
+    dumpExceptions  : true,
+    showStack       : true
+  }) );
+});
+
+app.configure( "production", function () {
+  app.use( express.errorHandler() );
+});
+
 app.get( '/', function ( request, response ) {
-  response.send( 'Hello Express' );
+  response.redirect( './spa.html' );
 });
 // --------------------- サーバ構成終了 ---------------------------
 
