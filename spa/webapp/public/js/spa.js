@@ -9,14 +9,17 @@
   regexp  : true, sloppy  : true, vars      : true,
   white   : true
 */
-/*global $, spa */
+/*global $, spa:true */
 
-var spa = (function ( ){
+spa = (function ( ){
   'use strict';
   var initModule = function ( $container ) {
     spa.data.initModule();
     spa.model.initModule();
-    spa.shell.initModule( $container );
+
+    if ( spa.shell && $container ) {
+      spa.shell.initModule( $container );
+    }
   };
 
   return { initModule : initModule };
