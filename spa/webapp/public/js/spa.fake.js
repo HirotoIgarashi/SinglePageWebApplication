@@ -93,7 +93,7 @@ spa.fake = (function (){
             dest_id   : user.id,
             dest_name : user.name,
             sender_id : data.dest_id,
-            msg_text  : 'Thank for the note, ' + user.name
+            msg_text  : 'Thanks for the note, ' + user.name
           }]);
         }, 2000);
       }
@@ -107,7 +107,7 @@ spa.fake = (function (){
           clearTimeout( listchange_idto );
           listchange_idto = undefined;
         }
-        send_listchange();
+        if ( ! data ) { send_listchange(); }
       }
 
       // サーバへの「updateavatar」メッセージとデータの送信をシュミレート
@@ -136,9 +136,7 @@ spa.fake = (function (){
             msg_text  : 'Hi there ' + user.name + '! Wilma here.'
           }]);
         }
-        else {
-          emit_mock_msg();
-        }
+        else { emit_mock_msg(); }
       }, 8000 );
     };
 
@@ -151,9 +149,7 @@ spa.fake = (function (){
           emit_mock_msg();
           listchange_idto = undefined;
         }
-        else {
-          send_listchange();
-        }
+        else { send_listchange(); }
       }, 1000 );
     };
 

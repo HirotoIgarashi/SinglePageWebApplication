@@ -163,11 +163,11 @@ spa.model = (function () {
       });
     };
 
-    logout = function () {
+    logout = function ( do_not_reset ) {
       var user = stateMap.user;
       // チャットを追加するときには、ここでチャットルームから出るべき
 
-      chat._leave();
+      chat._leave( do_not_reset );
       stateMap.user = stateMap.anon_user;
       clearPeopleDb();
 
@@ -306,11 +306,11 @@ spa.model = (function () {
     };
     // 内部メソッド終了
 
-    _leave_chat = function () {
+    _leave_chat = function ( do_not_reset ) {
       var sio = isFakeData ? spa.fake.mockSio : spa.data.getSio();
       chatee = null;
       stateMap.is_connected = false;
-      if ( sio ) { sio.emit( 'leavechat' ); }
+      if ( sio ) { sio.emit( 'leavechat', do_not_reset ); }
     };
 
     get_chatee = function () { return chatee; };
